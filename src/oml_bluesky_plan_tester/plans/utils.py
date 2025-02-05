@@ -1,4 +1,11 @@
-def get_plan(plan_name: str):
+from enum import Enum
+
+
+class Plans(Enum):
+    BIMORPH_OPTIMISATION = "bimorph_optimisation"
+
+
+def get_plan(plan_name: Plans):
     """Util function to return Bluesky plan with given name.
 
     Args:
@@ -7,4 +14,8 @@ def get_plan(plan_name: str):
     Returns:
         A Bluesky plan
     """
-    raise NotImplementedError
+    match plan_name:
+        case Plans.BIMORPH_OPTIMISATION:
+            from dodal.plans.bimorph import bimorph_optimisation
+
+            return bimorph_optimisation
