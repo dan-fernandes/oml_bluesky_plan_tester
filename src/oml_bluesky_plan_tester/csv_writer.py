@@ -38,5 +38,4 @@ def make_csv(docs: list[DocumentType]) -> str:
         ]
     )
 
-    # return csv_str
     return csv_str
